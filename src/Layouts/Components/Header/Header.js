@@ -8,6 +8,7 @@ import HeaderSubNav from '~/components/HeaderSubNav';
 import style from './Header.module.scss';
 import { menuList } from '~/MenuList';
 import Button from '~/components/Button';
+import { movieTypeNav, Country } from '~/components/HeaderSubNav/LinkSubNav';
 const cx = classNames.bind(style);
 function Header() {
     return (
@@ -21,10 +22,15 @@ function Header() {
                 </Link>
                 <ul className={cx('menu-list')}>
                     {menuList.map((item, index) => {
-                        if (item == 'genre') {
+                        if (item == 'genre' || item == 'country') {
                             return (
                                 <div key={index}>
-                                    <HeaderSubNav item={item} index={index}></HeaderSubNav>
+                                    <HeaderSubNav
+                                        item={item}
+                                        index={index}
+                                        movieTypeNav={item == 'genre' && movieTypeNav}
+                                        Country={item == 'country' && Country}
+                                    ></HeaderSubNav>
                                 </div>
                             );
                         } else {
@@ -39,6 +45,12 @@ function Header() {
                 <Button leftIcon={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>
                     <span>Login</span>
                 </Button>
+            </div>
+            <div className={cx('search-wrapper')}>
+                <h5 className={cx('search-header')}>Find Movies, TV shows and more</h5>
+                <div>
+                    <input className={cx('search-input')} placeholder="Entrer keyword..."></input>
+                </div>
             </div>
         </header>
     );

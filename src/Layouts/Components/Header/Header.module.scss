@@ -1,6 +1,8 @@
 .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     padding: 0px 123px;
     height: 232px;
     background: #144184 url('https://hdtoday.tv/images/group_1/theme_7/header-bg.jpg') top repeat-x;

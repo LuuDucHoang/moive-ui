@@ -1,7 +1,45 @@
-.bbbb {
+.wrapper {
     width: 700px;
-    height: 230px;
-    color: black;
+    left: 0;
     background-color: var(--white);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.subnav-wrapper {
+    width: 714px;
+    padding: 10px;
+    color: black;
+    list-style: none;
+    text-align: left;
+    overflow: hidden;
+}
+.subnav-wrapper .movieTypeNav {
+    height: 230px;
+}
+.subnav-wrapper .Country {
+    height: 290px;
+}
+
+.subnav-wrapper .list-item {
+    height: 30px;
+    width: 23%;
+    float: left;
+    padding: 0;
+}
+.subnav-wrapper .data-item {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    color: #111;
+    line-height: 30px;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-transform: none;
+    text-overflow: ellipsis;
+
+    &:hover {
+        background-color: #3e8afa;
+        color: var(--white);
+    }
 }
