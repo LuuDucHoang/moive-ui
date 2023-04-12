@@ -7,11 +7,14 @@ import Image from '~/components/Image/';
 const cx = classNames.bind(styles);
 function MovieItem({ data }) {
     const newData = data;
+    {
+        console.log(newData);
+    }
     if (newData.i && newData.l) {
         return (
-            <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+            <Link className={cx('wrapper')}>
                 <Image className={cx('poster')} src={data.i.imageUrl} alt={data.nickname + 'poster'}></Image>
-                {console.log(newData)}
+
                 <div className={cx('info')}>
                     <h4 className={cx('movie-name')}>
                         <span>{newData.l}</span>

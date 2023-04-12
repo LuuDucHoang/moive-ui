@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.header {
+    margin-right: 24px;
+    font-size: 3rem;
+    font-weight: 300;
+}
+.tvshows {
+    color: black;
+    background-color: var(--white);
+}
+
+.movie {
+    color: #fff;
+    background-color: #3e8afa;
+}
+.moviebtn {
+    color: #fff !important;
+    background-color: #3e8afa !important;
+}

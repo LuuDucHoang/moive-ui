@@ -1,5 +1,9 @@
-function Seacrh() {
-    return <h1>Search Page</h1>;
+function Seacrh({ data }) {
+    return (
+        <div>
+            <h1>Search Page</h1>
+        </div>
+    );
 }
 
 export default Seacrh;

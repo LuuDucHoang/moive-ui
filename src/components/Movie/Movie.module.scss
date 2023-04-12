@@ -1,0 +1,52 @@
+.wrapper {
+    position: relative;
+    width: 12%;
+    margin: 0 0.25% 10px;
+    float: left;
+    margin-bottom: 18px;
+}
+.quality {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #111;
+    background: #fff;
+    padding: 3px 4px;
+    border-radius: 2px;
+}
+.poster {
+    width: 100%;
+
+    height: 100%;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+.movie-name {
+    margin-bottom: 5px;
+    color: #111;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.movie-desc {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.33rem;
+    color: #666;
+}
+.dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #666;
+    margin: 3px 5px;
+}
+.type {
+    font-size: 1.2rem;
+    line-height: 1em;
+    padding: 2px 4px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}

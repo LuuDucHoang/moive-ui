@@ -69,7 +69,7 @@ Button.propTypes = {
     leftIcon: PropTypes.node,
     className: PropTypes.string,
     rightIcon: PropTypes.node,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     onClick: PropTypes.func,
 };
 export default Button;

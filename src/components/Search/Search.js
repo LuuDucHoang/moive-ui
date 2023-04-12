@@ -6,9 +6,9 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 import { useDebounce } from '~/components/hooks';
-import * as searchServices from '~/components/services/searchService';
 import MovieItem from '~/components/MovieItem';
 import style from './Search.module.scss';
+import { keyHeader } from '~/KeyHeader';
 const cx = classNames.bind(style);
 function Search() {
     const inputRef = useRef();
@@ -26,10 +26,7 @@ function Search() {
             method: 'GET',
             url: 'https://imdb8.p.rapidapi.com/auto-complete',
             params: { q: debouncedValue },
-            headers: {
-                'X-RapidAPI-Key': '46f5f5d3f5msh631aec3dffde13fp1ae3b3jsn67d84ecb3e73',
-                'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
-            },
+            headers: keyHeader,
         };
 
         axios
@@ -67,7 +64,7 @@ function Search() {
                         render={() => (
                             <div className={cx('moive-item-wrapper')}>
                                 {searchResult.map((data, index) => (
-                                    <div key={index}>
+                                    <div className={cx('item-wrapper')} key={index}>
                                         <MovieItem data={data}></MovieItem>
                                     </div>
                                 ))}
