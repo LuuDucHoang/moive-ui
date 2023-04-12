@@ -2,7 +2,7 @@ import { faSearch, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 import { useDebounce } from '~/components/hooks';
@@ -11,8 +11,10 @@ import MovieItem from '~/components/MovieItem';
 import style from './Search.module.scss';
 const cx = classNames.bind(style);
 function Search() {
+    const inputRef = useRef();
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
+    const [inputBlur, setBlurInput] = useState(false);
     const debouncedValue = useDebounce(searchValue, 200);
 
     useEffect(() => {
@@ -33,7 +35,9 @@ function Search() {
         axios
             .request(options)
             .then(function (response) {
-                setSearchResult(response.data.d);
+                let newApi = response.data.d;
+                newApi.length = 5;
+                setSearchResult(newApi);
             })
             .catch(function (error) {
                 console.error(error);
@@ -45,9 +49,9 @@ function Search() {
             setSearchValue(inputValue);
         }
     };
-    {
-        console.log(searchResult);
-    }
+    const handleHideResult = () => {
+        setBlurInput(false);
+    };
     return (
         <div className={cx('search-wrapper')}>
             <h5 className={cx('search-header')}>Find Movies, TV shows and more</h5>
@@ -57,6 +61,8 @@ function Search() {
                 </div>
                 <div className={cx('ccc')}>
                     <HeadlessTippy
+                        onClickOutside={handleHideResult}
+                        visible={inputBlur && searchResult.length > 0}
                         interactive
                         render={() => (
                             <div className={cx('moive-item-wrapper')}>
@@ -67,11 +73,12 @@ function Search() {
                                 ))}
                             </div>
                         )}
-                        visible
-                        content={'aaaaaaaaaaaaaa'}
                         placement="bottom-end"
                     >
                         <input
+                            spellCheck={false}
+                            onFocus={() => setBlurInput(true)}
+                            ref={inputRef}
                             value={searchValue}
                             onChange={(e) => hanldeChangInput(e)}
                             className={cx('search-input')}
