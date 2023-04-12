@@ -12,7 +12,7 @@
         background: rgba(22, 24, 35, 0.03);
     }
 }
-.avatar {
+.poster {
     border-radius: 4px;
     float: left;
     height: 75px;
@@ -22,7 +22,7 @@
     flex: 1;
     margin-left: 12px;
 }
-.name {
+.movie-name {
     font-size: 14px;
     font-weight: 500;
     line-height: 1.2em;
@@ -35,7 +35,7 @@
     color: #111;
 }
 
-.username {
+.movie-type {
     text-align: left;
     color: #555;
     font-size: 1.2rem;

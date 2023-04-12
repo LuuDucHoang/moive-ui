@@ -3,15 +3,14 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faSearch, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import HeadlessTippy from '@tippyjs/react/headless';
 
 import HeaderSubNav from '~/components/HeaderSubNav';
 import style from './Header.module.scss';
 import { menuList } from '~/MenuList';
 import Button from '~/components/Button';
 import { movieTypeNav, Country } from '~/components/HeaderSubNav/LinkSubNav';
-import MovieItem from '~/components/MovieItem';
+import Search from '~/components/Search';
+
 const cx = classNames.bind(style);
 function Header() {
     const datas = [
@@ -66,36 +65,7 @@ function Header() {
                     <span>Login</span>
                 </Button>
             </div>
-            <div className={cx('search-wrapper')}>
-                <h5 className={cx('search-header')}>Find Movies, TV shows and more</h5>
-                <div className={cx('search-input-cop')}>
-                    <div className={cx('search-icon')}>
-                        <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-                    </div>
-                    <div className={cx('ccc')}>
-                        <HeadlessTippy
-                            interactive
-                            render={() => (
-                                <div className={cx('moive-item-wrapper')}>
-                                    {datas.map((data) => (
-                                        <div>
-                                            <MovieItem data={data}></MovieItem>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                            visible
-                            content={'aaaaaaaaaaaaaa'}
-                            placement="bottom-end"
-                        >
-                            <input className={cx('search-input')} placeholder="Entrer keyword..."></input>
-                        </HeadlessTippy>
-                    </div>
-                    <div className={cx('go')}>
-                        <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                    </div>
-                </div>
-            </div>
+            <Search datas={datas}></Search>
         </header>
     );
 }
