@@ -26,9 +26,11 @@ function Search() {
             method: 'GET',
             url: 'https://imdb8.p.rapidapi.com/auto-complete',
             params: { q: debouncedValue },
-            headers: keyHeader,
+            headers: {
+                'X-RapidAPI-Key': 'd01f23bf46mshd08ca4d18817b2ep16a17fjsn4015aefe1531',
+                'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
+            },
         };
-
         axios
             .request(options)
             .then(function (response) {

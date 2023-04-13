@@ -1,12 +1,10 @@
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {} from '@fortawesome/free-regular-svg-icons';
 
 import style from './Content.module.scss';
 import Ads from './Ads';
 import ListMovieHeader from './ListMovieHeader';
 import Social from './Social';
-import Movie from '~/components/Movie/';
+import ListMovie from '~/components/ListMovie/ListMovie';
 const cx = classNames.bind(style);
 function Content() {
     return (
@@ -15,9 +13,7 @@ function Content() {
                 <Social></Social>
                 <Ads></Ads>
                 <ListMovieHeader></ListMovieHeader>
-                <div>
-                    <Movie></Movie>
-                </div>
+                <ListMovie></ListMovie>
             </div>
         </div>
     );
