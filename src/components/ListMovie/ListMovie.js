@@ -32,6 +32,7 @@ function ListMovie() {
                 });
         }, []),
     );
+
     return (
         <div className={cx('wrapper')}>
             {getMovieList.map((movie, index) => {

@@ -1,0 +1,52 @@
+// film poster
+.poster {
+    width: 180px;
+    position: absolute;
+}
+.film-poster {
+    width: 100%;
+    height: 270px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.progress {
+    width: 100%;
+    height: 3px;
+    background: #333;
+}
+.vote-rate {
+    margin-right: 5px;
+    font-size: 1.6rem;
+    color: #3e8afa !important;
+}
+.rating {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.rating-progress {
+    margin-top: 5px;
+    height: 100%;
+    background: #3e8afa !important;
+    width: 83.89830508474576%;
+}
+.action-btn {
+    display: flex;
+    justify-content: space-between;
+}
+.btn {
+    padding: 4px 8px;
+    width: 87px;
+    height: 29px;
+    min-width: 0;
+    font-size: 1.4rem;
+    color: var(--white);
+    &:hover {
+        opacity: 0.8;
+    }
+}
+.like {
+    background-color: #3e8afa !important;
+}
+.dislike {
+    background: #444 !important;
+}

@@ -21,3 +21,8 @@
     color: #fff !important;
     background-color: #3e8afa !important;
 }
+.btn {
+    &:hover {
+        opacity: 0.8;
+    }
+}

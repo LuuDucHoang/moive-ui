@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 123px;
+    height: 65px;
+    background: #144184 url('https://hdtoday.tv/images/group_1/theme_7/header-bg.jpg') top repeat-x;
+    z-index: 2;
+}
+.container {
+    width: var(--web-width);
+    height: var(--menu-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    width: 112px;
+    height: 35px;
+}
+.menu-list {
+    height: var(--menu-height);
+    display: flex;
+    list-style: none;
+    font-size: 1.4rem;
+    color: var(--white);
+
+    li {
+        height: 100%;
+        padding: 0px 20px;
+        text-transform: uppercase;
+    }
+    li a {
+        display: flex;
+        height: 100%;
+        text-decoration: none;
+        align-items: center;
+        color: var(--white);
+    }
+}
+.login-btn {
+    margin-left: 10px;
+}
+.login-search {
+    display: flex;
+}

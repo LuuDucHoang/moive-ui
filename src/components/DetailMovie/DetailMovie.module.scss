@@ -1,0 +1,158 @@
+.wrapper {
+    display: flex;
+    margin: 0px 123px;
+    padding: 30px;
+    border-radius: 20px;
+    min-height: 410px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+// film poster
+.poster {
+    width: 180px;
+    position: absolute;
+}
+.film-poster {
+    width: 100%;
+    height: 270px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.progress {
+    width: 100%;
+    height: 3px;
+    background: #333;
+}
+.vote-rate {
+    margin-right: 5px;
+    font-size: 1.6rem;
+    color: #3e8afa !important;
+}
+.rating {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.rating-progress {
+    margin-top: 5px;
+    height: 100%;
+    background: #3e8afa !important;
+    width: 83.89830508474576%;
+}
+.action-btn {
+    display: flex;
+    justify-content: space-between;
+}
+.btn {
+    padding: 4px 8px;
+    width: 87px;
+    height: 29px;
+    min-width: 0;
+    font-size: 1.4rem;
+    color: var(--white);
+}
+.like {
+    background-color: #3e8afa !important;
+}
+.dislike {
+    background: #444 !important;
+}
+
+// flim detail
+.film-detail {
+    width: 100%;
+    padding-left: 210px;
+}
+
+.action-btn {
+    height: 38px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.btn-watch {
+    background-color: #3e8afa !important;
+    color: var(--white);
+    &:hover {
+        background: #2160bc !important;
+        border-color: #2160bc !important;
+    }
+}
+.btn-add {
+    background: #e2e6ea;
+    border-color: #e2e6ea;
+}
+.movie-title {
+    margin: 0 0 15px;
+    font-weight: 300;
+    a {
+        text-decoration: none;
+    }
+    span {
+        color: #111;
+        text-decoration: none !important;
+        font-size: 3.8rem;
+    }
+    :hover {
+        color: #3e8afa;
+    }
+}
+
+// quality
+.quality {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.type {
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid #111 !important;
+    font-size: 1.4rem;
+    width: 80px;
+    height: 100%;
+    height: 31px;
+    margin-right: 8px;
+    cursor: default;
+}
+.movie-quality {
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid #111 !important;
+    font-size: 1.4rem;
+    font-weight: 600;
+    width: 37px;
+    min-width: 0;
+    margin-right: 8px;
+    cursor: default;
+}
+.point {
+    background: 0 0 !important;
+    color: #ffa600 !important;
+    font-weight: 600;
+    border-color: transparent !important;
+    font-size: 1.4rem;
+}
+
+.movie-dres {
+    margin-bottom: 15px;
+    line-height: 2.25rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.movie-info {
+    display: flex;
+
+    width: 100%;
+}
+.info-wrapper {
+    width: 524px;
+    height: 19.5px;
+}
+.info-item {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+.detail {
+    font-weight: 300;
+    color: #111;
+}

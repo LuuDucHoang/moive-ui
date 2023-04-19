@@ -14,9 +14,9 @@ import style from './Social.module.scss';
 import Button from '~/components/Button';
 
 const cx = classNames.bind(style);
-function Social() {
+function Social({ mt30 }) {
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { mt30 })}>
             <Button
                 className={cx('btn', {
                     fb: 'fb',

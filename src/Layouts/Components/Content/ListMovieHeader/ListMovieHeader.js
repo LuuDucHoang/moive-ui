@@ -11,10 +11,16 @@ function ListMovieHeader() {
         <div className={cx('wrapper')}>
             <h2 className={cx('header')}>Trending</h2>
             <div className={cx('button-wrapper')}>
-                <Button className={cx('tvshows')} leftIcon={<FontAwesomeIcon icon={faList}></FontAwesomeIcon>}>
+                <Button
+                    className={cx('tvshows', { btn: 'btn' })}
+                    leftIcon={<FontAwesomeIcon icon={faList}></FontAwesomeIcon>}
+                >
                     TV Shows
                 </Button>
-                <Button className={cx('moviebtn')} leftIcon={<FontAwesomeIcon icon={faCirclePlay}></FontAwesomeIcon>}>
+                <Button
+                    className={cx('moviebtn', { btn: 'btn' })}
+                    leftIcon={<FontAwesomeIcon icon={faCirclePlay}></FontAwesomeIcon>}
+                >
                     <span>Movie</span>
                 </Button>
             </div>

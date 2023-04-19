@@ -11,7 +11,7 @@ function Content() {
         <div className={cx('content-wrapper')}>
             <div className={cx('contact')}>
                 <Social></Social>
-                <Ads></Ads>
+                {/* <Ads></Ads> */}
                 <ListMovieHeader></ListMovieHeader>
                 <ListMovie></ListMovie>
             </div>
