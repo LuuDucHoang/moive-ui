@@ -1,6 +1,7 @@
 const routes = {
     home: '/',
     search: '/search',
-    detail: '/:nickname',
+    detail: '/:id',
+    detailMovie: '/watch',
 };
 export default routes;

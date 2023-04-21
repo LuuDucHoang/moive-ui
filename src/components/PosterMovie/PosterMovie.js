@@ -8,18 +8,16 @@ import style from './PosterMovie.module.scss';
 
 const cx = classNames.bind(style);
 
-function PosterMovie() {
+function PosterMovie(data) {
     return (
         <div>
             <div className={cx('poster')}>
                 <Image
                     className={cx('film-poster')}
-                    src={
-                        'https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/342190788_966458471390172_8815176649849049255_n.jpg?stp=dst-jpg_s640x640&_nc_cat=105&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=toU1qIkRJX4AX8mOX16&_nc_ht=scontent.fhan2-4.fna&oh=00_AfC4yQ8Fo7wnKQ2f5o8RNC-fwzKkXGGNybJIT-_6yrMoXA&oe=644404C3'
-                    }
+                    src={`https://image.tmdb.org/t/p/original/${data.data.poster_path}`}
                 ></Image>
                 <div className={cx('rating')}>
-                    <span className={cx('vote-rate')}>8.4</span>/ 118 voted
+                    <span className={cx('vote-rate')}>{data.data.vote_average}</span>/ {data.data.vote_count}
                     <div className={cx('progress')}>
                         <div role="progressbar" className={cx('rating-progress')}></div>
                     </div>

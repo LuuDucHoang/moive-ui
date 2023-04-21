@@ -3,44 +3,35 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
 
 import { useDebounce } from '~/components/hooks';
 import MovieItem from '~/components/MovieItem';
 import style from './Search.module.scss';
-import { keyHeader } from '~/KeyHeader';
+import * as searchServices from '~/services/searchService';
+
 const cx = classNames.bind(style);
 function Search() {
     const inputRef = useRef();
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [inputBlur, setBlurInput] = useState(false);
-    const debouncedValue = useDebounce(searchValue, 200);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
         if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
-        const options = {
-            method: 'GET',
-            url: 'https://imdb8.p.rapidapi.com/auto-complete',
-            params: { q: debouncedValue },
-            headers: {
-                'X-RapidAPI-Key': 'd01f23bf46mshd08ca4d18817b2ep16a17fjsn4015aefe1531',
-                'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
-            },
+        const fethApi = async () => {
+            const data = await searchServices.search(debouncedValue);
+
+            if (data) {
+                let newApi = data;
+                newApi.results.length = 5;
+                setSearchResult(newApi.results);
+            }
         };
-        axios
-            .request(options)
-            .then(function (response) {
-                let newApi = response.data.d;
-                newApi.length = 5;
-                setSearchResult(newApi);
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
+        fethApi();
     }, [debouncedValue]);
     const hanldeChangInput = (e) => {
         const inputValue = e.target.value;

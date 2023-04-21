@@ -3,6 +3,7 @@ import Seacrh from '~/Pages/Search';
 import Detail from '~/Pages/Detail';
 import config from '~/config';
 import DetailLayout from '~/Layouts/DetailLayout';
+
 const publicRoutes = [
     {
         path: config.routes.home,
@@ -14,6 +15,11 @@ const publicRoutes = [
     },
     {
         path: config.routes.detail,
+        component: Detail,
+        Layout: DetailLayout,
+    },
+    {
+        path: config.routes.detailMovie,
         component: Detail,
         Layout: DetailLayout,
     },

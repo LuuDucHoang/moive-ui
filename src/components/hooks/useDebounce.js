@@ -8,7 +8,7 @@ function useDebounce(value, delay) {
             return setDebounceValue(value);
         }, delay);
         return () => clearTimeout(hanlder);
-    }, [value, delay]);
+    }, [value]);
     return debounceValue;
 }
 

@@ -4,22 +4,24 @@ import { Link } from 'react-router-dom';
 
 import styles from './MovieItem.module.scss';
 import Image from '~/components/Image/';
+import noImg from '~/assets/image/NoImg.png';
+
 const cx = classNames.bind(styles);
 function MovieItem({ data }) {
-    const newData = data;
-    {
-        console.log(newData);
-    }
-    if (newData.i && newData.l) {
+    if (data) {
         return (
             <Link className={cx('wrapper')}>
-                <Image className={cx('poster')} src={data.i.imageUrl} alt={data.nickname + 'poster'}></Image>
+                <Image
+                    className={cx('poster')}
+                    src={data.poster_path ? `https://image.tmdb.org/t/p/original/${data.poster_path}` : noImg}
+                    alt={data.original_title + 'poster'}
+                ></Image>
 
                 <div className={cx('info')}>
                     <h4 className={cx('movie-name')}>
-                        <span>{newData.l}</span>
+                        <span>{data.original_title}</span>
                     </h4>
-                    <span className={cx('movie-type')}>{data.s}</span>
+                    <span className={cx('movie-type')}>{data.release_date}</span>
                 </div>
             </Link>
         );

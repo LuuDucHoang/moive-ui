@@ -14,6 +14,14 @@ const movieReducer = (state = initialState, action) => {
                 movie: newMovie,
             };
         }
+        case 'INDEX': {
+            let newIndex = state.index;
+            newIndex = action.payload;
+            return {
+                ...state,
+                selectedId: newIndex,
+            };
+        }
         default:
             return state;
     }
