@@ -1,7 +1,8 @@
 const routes = {
     home: '/',
     search: '/search',
-    detail: '/:id',
+    detail: '/:type/:id',
+    // detailTV: '/tvshows/:id',
     detailMovie: '/watch',
 };
 export default routes;

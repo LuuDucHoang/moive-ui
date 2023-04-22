@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import style from './Detail.module.scss';
 import DetailMovie from '~/components/DetailMovie/';
@@ -11,23 +11,40 @@ import Social from '~/Layouts/Components/Content//Social';
 import ListMovie from '~/components/ListMovie/';
 import ListMovieHeader from '~/Layouts/Components/Content//ListMovieHeader';
 import * as DetailService from '~/services/getDeatilService';
+import * as DetailTVService from '~/services/getDetailTV';
 const cx = classNames.bind(style);
 function Detail() {
-    // const id = useSelector((state) => state.movie.selectedId);
-
-    const { id } = useParams();
+    const { type, id } = useParams();
     const [detailData, setDetailData] = useState({});
+    const movieType = useSelector((state) => state.movie.movieType);
+    console.log(movieType);
+    console.log(id, type);
 
     useEffect(() => {
-        const fethApi = async () => {
-            const data = await DetailService.detailItem(id);
+        if (type === 'movie') {
+            const fethApi = async () => {
+                const data = await DetailService.detailItem(id);
 
-            if (data) {
-                setDetailData(data);
-            }
-        };
-        fethApi();
-    }, [id]);
+                if (data) {
+                    setDetailData(data);
+                }
+            };
+            fethApi();
+        }
+        if (type === 'tvshows') {
+            const fethApi = async () => {
+                const data = await DetailTVService.detailItem(id);
+
+                if (data) {
+                    setDetailData(data);
+                }
+            };
+            fethApi();
+        }
+    }, [id, type]);
+    {
+        console.log(detailData);
+    }
     return (
         <div className={cx('wrapper')}>
             <div
@@ -46,10 +63,10 @@ function Detail() {
                 <DetailMovie data={detailData}></DetailMovie>
             </div>
             <Social mt30></Social>
-            <div className={cx('may-like')}>
+            {/* <div className={cx('may-like')}>
                 <ListMovieHeader></ListMovieHeader>
                 <ListMovie></ListMovie>
-            </div>
+            </div> */}
         </div>
     );
 }

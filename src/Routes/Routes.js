@@ -23,6 +23,11 @@ const publicRoutes = [
         component: Detail,
         Layout: DetailLayout,
     },
+    {
+        path: config.routes.detailTV,
+        component: Detail,
+        Layout: DetailLayout,
+    },
 ];
 const privateRoutes = [];
 export { publicRoutes, privateRoutes };

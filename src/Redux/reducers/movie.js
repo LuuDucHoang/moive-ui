@@ -1,6 +1,6 @@
 const initialState = {
     movie: {},
-    selectedId: null,
+    movieType: 'movie',
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -14,12 +14,12 @@ const movieReducer = (state = initialState, action) => {
                 movie: newMovie,
             };
         }
-        case 'INDEX': {
-            let newIndex = state.index;
-            newIndex = action.payload;
+        case 'CHANGE': {
+            let newMovieType = state.movieType;
+            newMovieType = action.payload;
             return {
                 ...state,
-                selectedId: newIndex,
+                movieType: newMovieType,
             };
         }
         default:

@@ -13,16 +13,17 @@
     background-color: var(--white);
 }
 
-.movie {
-    color: #fff;
-    background-color: #3e8afa;
-}
 .moviebtn {
-    color: #fff !important;
-    background-color: #3e8afa !important;
+    color: #111;
+    background-color: #3e8afa;
 }
 .btn {
     &:hover {
         opacity: 0.8;
     }
+}
+.tvBtnActice,
+.movieBtnActice {
+    color: #fff !important;
+    background-color: #3e8afa !important;
 }

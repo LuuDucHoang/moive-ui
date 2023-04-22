@@ -1,16 +1,20 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import styles from './MovieItem.module.scss';
 import Image from '~/components/Image/';
 import noImg from '~/assets/image/NoImg.png';
 
 const cx = classNames.bind(styles);
+
 function MovieItem({ data }) {
+    const movieType = useSelector((state) => state.movie.movieType);
+
     if (data) {
         return (
-            <Link className={cx('wrapper')}>
+            <Link to={`/${movieType}/${data.id}`} className={cx('wrapper')}>
                 <Image
                     className={cx('poster')}
                     src={data.poster_path ? `https://image.tmdb.org/t/p/original/${data.poster_path}` : noImg}

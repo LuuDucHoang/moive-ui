@@ -9,8 +9,19 @@ import PosterMovie from '~/components/PosterMovie';
 const cx = classNames.bind(style);
 function DetailMovie(data) {
     const moive = data.data;
-    const handleRenderArray = (item, index) => {
-        if (index < moive.genres.length - 1) {
+    const genres = 'genres';
+    const country = 'production_countries';
+    const production = 'production_companies';
+    const handleRenderArray = (item, index, options) => {
+        console.log(moive[options].length, options);
+        if (moive[options].length === 0) {
+            return (
+                <span key={index} className={cx('detail')}>
+                    <span>None</span>
+                </span>
+            );
+        }
+        if (index < moive[options].length - 1) {
             return (
                 <span key={index} className={cx('detail')}>
                     {item.name}
@@ -18,7 +29,7 @@ function DetailMovie(data) {
                 </span>
             );
         }
-        if ((index = moive.genres.length - 1)) {
+        if (index === moive[options].length - 1) {
             return (
                 <span key={Math.random()} className={cx('detail')}>
                     {item.name}
@@ -48,7 +59,7 @@ function DetailMovie(data) {
                 </div>
                 <div className={cx('movie-title')}>
                     <Link>
-                        <span>{data.data.original_title}</span>
+                        <span>{data.data.original_title ? data.data.original_title : data.data.original_name}</span>
                     </Link>
                 </div>
                 <div className={cx('quality')}>
@@ -63,11 +74,15 @@ function DetailMovie(data) {
                     <div className={cx('info-wrapper')}>
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Released: </span>
-                            <span className={cx('detail')}> {data.data.release_date}</span>
+                            <span className={cx('detail')}>
+                                {data.data.release_date ? data.data.release_date : data.data.first_air_date}
+                            </span>
                         </div>
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Genre: </span>
-                            {moive.genres ? moive.genres.map((movie, index) => handleRenderArray(movie, index)) : ''}
+                            {moive.genres
+                                ? moive.genres.map((movie, index) => handleRenderArray(movie, index, genres))
+                                : ''}
                         </div>
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Casts: </span>
@@ -77,22 +92,28 @@ function DetailMovie(data) {
                     <div className={cx('info-wrapper')}>
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Duration: </span>
-                            <span className={cx('detail')}>{moive.runtime} min</span>
+                            <span className={cx('detail')}>
+                                {moive.runtime ? `${moive.runtime} min}` : `${moive.number_of_seasons} sesons`}
+                            </span>
                         </div>
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Country: </span>
                             <span className={cx('detail')}>
                                 {moive.production_countries
-                                    ? moive.production_countries.map((count, index) => handleRenderArray(count, index))
-                                    : ''}
+                                    ? moive.production_countries.map((count, index) =>
+                                          handleRenderArray(count, index, country),
+                                      )
+                                    : 'None'}
                             </span>
                         </div>
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Production: </span>
                             <span className={cx('detail')}>
                                 {moive.production_companies
-                                    ? moive.production_companies.map((count, index) => handleRenderArray(count, index))
-                                    : ''}
+                                    ? moive.production_companies.map((count, index) =>
+                                          handleRenderArray(count, index, production),
+                                      )
+                                    : 'None'}
                             </span>
                         </div>
                     </div>
