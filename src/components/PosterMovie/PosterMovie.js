@@ -5,6 +5,7 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
 import Button from '~/components/Button';
 import style from './PosterMovie.module.scss';
+import noImg from '~/assets/image/NoImg.png';
 
 const cx = classNames.bind(style);
 
@@ -14,7 +15,7 @@ function PosterMovie(data) {
             <div className={cx('poster')}>
                 <Image
                     className={cx('film-poster')}
-                    src={`https://image.tmdb.org/t/p/original/${data.data.poster_path}`}
+                    src={data.data.poster_path ? `https://image.tmdb.org/t/p/original/${data.data.poster_path}` : noImg}
                 ></Image>
                 <div className={cx('rating')}>
                     <span className={cx('vote-rate')}>{data.data.vote_average}</span>/ {data.data.vote_count}

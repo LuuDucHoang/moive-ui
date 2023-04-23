@@ -3,23 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import style from './Detail.module.scss';
 import DetailMovie from '~/components/DetailMovie/';
 import Social from '~/Layouts/Components/Content//Social';
-import ListMovie from '~/components/ListMovie/';
 import ListMovieHeader from '~/Layouts/Components/Content//ListMovieHeader';
 import * as DetailService from '~/services/getDeatilService';
 import * as DetailTVService from '~/services/getDetailTV';
+import Recommend from '~/components/recommend';
+import noImg from '~/assets/image/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg';
 const cx = classNames.bind(style);
 function Detail() {
     const { type, id } = useParams();
     const [detailData, setDetailData] = useState({});
-    const movieType = useSelector((state) => state.movie.movieType);
-    console.log(movieType);
-    console.log(id, type);
-
     useEffect(() => {
         if (type === 'movie') {
             const fethApi = async () => {
@@ -42,15 +38,20 @@ function Detail() {
             fethApi();
         }
     }, [id, type]);
+    let imgUrl;
+    // eslint-disable-next-line no-lone-blocks
     {
-        console.log(detailData);
+        detailData.backdrop_path
+            ? (imgUrl = `url(https://image.tmdb.org/t/p/original/${detailData.backdrop_path})`)
+            : (imgUrl = `url(${noImg})`);
     }
+
     return (
         <div className={cx('wrapper')}>
             <div
                 className={cx('poster-background')}
                 style={{
-                    backgroundImage: `url(https://image.tmdb.org/t/p/original/${detailData.backdrop_path})`,
+                    backgroundImage: imgUrl,
                 }}
             >
                 <Link className={cx('btn-play')}>
@@ -63,10 +64,10 @@ function Detail() {
                 <DetailMovie data={detailData}></DetailMovie>
             </div>
             <Social mt30></Social>
-            {/* <div className={cx('may-like')}>
-                <ListMovieHeader></ListMovieHeader>
-                <ListMovie></ListMovie>
-            </div> */}
+            <div className={cx('may-like')}>
+                <ListMovieHeader header="You may  also like :3"></ListMovieHeader>
+                <Recommend></Recommend>
+            </div>
         </div>
     );
 }

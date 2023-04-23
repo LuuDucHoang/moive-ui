@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {} from '@fortawesome/free-regular-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import Image from '~/components/Image';
 import noImg from '~/assets/image/NoImg.png';
@@ -12,14 +13,24 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(style);
 function Movie(data) {
     const movieType = useSelector((state) => state.movie.movieType);
+    const { type } = useParams();
 
     return (
         <div className={cx('wrapper')}>
-            <Link className={cx('btn-play')} to={`/${movieType}/${data.data.id}`}>
-                <div className={cx('play-icon')}>
-                    <FontAwesomeIcon icon={faPlay}></FontAwesomeIcon>
-                </div>
-            </Link>
+            <div
+                onClick={() => {
+                    window.scroll({
+                        top: '0',
+                        behavior: 'smooth',
+                    });
+                }}
+            >
+                <Link className={cx('btn-play')} to={`/${type ? type : movieType}/${data.data.id}`}>
+                    <div className={cx('play-icon')}>
+                        <FontAwesomeIcon icon={faPlay}></FontAwesomeIcon>
+                    </div>
+                </Link>
+            </div>
 
             <div className={cx('ho')}>
                 <Image

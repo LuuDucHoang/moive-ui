@@ -13,7 +13,6 @@ function DetailMovie(data) {
     const country = 'production_countries';
     const production = 'production_companies';
     const handleRenderArray = (item, index, options) => {
-        console.log(moive[options].length, options);
         if (moive[options].length === 0) {
             return (
                 <span key={index} className={cx('detail')}>
@@ -93,7 +92,7 @@ function DetailMovie(data) {
                         <div className={cx('info-item')}>
                             <span className={cx('info')}>Duration: </span>
                             <span className={cx('detail')}>
-                                {moive.runtime ? `${moive.runtime} min}` : `${moive.number_of_seasons} sesons`}
+                                {moive.runtime ? `${moive.runtime} min` : `${moive.number_of_seasons} sesons`}
                             </span>
                         </div>
                         <div className={cx('info-item')}>
@@ -103,7 +102,7 @@ function DetailMovie(data) {
                                     ? moive.production_countries.map((count, index) =>
                                           handleRenderArray(count, index, country),
                                       )
-                                    : 'None'}
+                                    : ''}
                             </span>
                         </div>
                         <div className={cx('info-item')}>
@@ -113,7 +112,7 @@ function DetailMovie(data) {
                                     ? moive.production_companies.map((count, index) =>
                                           handleRenderArray(count, index, production),
                                       )
-                                    : 'None'}
+                                    : ''}
                             </span>
                         </div>
                     </div>

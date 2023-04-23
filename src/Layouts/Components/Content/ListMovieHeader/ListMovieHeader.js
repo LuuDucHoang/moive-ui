@@ -10,7 +10,7 @@ import Button from '~/components/Button/';
 
 const cx = classNames.bind(style);
 
-function ListMovieHeader() {
+function ListMovieHeader({ button, header = '' }) {
     const [movieBtnActice, setMovieBtnActive] = useState(true);
     const [tvBtnActice, setTVBtnActive] = useState(false);
     const dispatch = useDispatch();
@@ -37,23 +37,25 @@ function ListMovieHeader() {
     };
     return (
         <div className={cx('wrapper')}>
-            <h2 className={cx('header')}>Trending</h2>
-            <div className={cx('button-wrapper')}>
-                <Button
-                    onClick={handleMovieActive}
-                    className={cx('moviebtn', { btn: 'btn', movieBtnActice })}
-                    leftIcon={<FontAwesomeIcon icon={faCirclePlay}></FontAwesomeIcon>}
-                >
-                    <span>Movie</span>
-                </Button>
-                <Button
-                    onClick={handleTvActive}
-                    className={cx('tvshows', { btn: 'btn', tvBtnActice })}
-                    leftIcon={<FontAwesomeIcon icon={faList}></FontAwesomeIcon>}
-                >
-                    TV Shows
-                </Button>
-            </div>
+            <h2 className={cx('header')}>{header}</h2>
+            {button && (
+                <div className={cx('button-wrapper')}>
+                    <Button
+                        onClick={handleMovieActive}
+                        className={cx('moviebtn', { btn: 'btn', movieBtnActice })}
+                        leftIcon={<FontAwesomeIcon icon={faCirclePlay}></FontAwesomeIcon>}
+                    >
+                        <span>Movie</span>
+                    </Button>
+                    <Button
+                        onClick={handleTvActive}
+                        className={cx('tvshows', { btn: 'btn', tvBtnActice })}
+                        leftIcon={<FontAwesomeIcon icon={faList}></FontAwesomeIcon>}
+                    >
+                        TV Shows
+                    </Button>
+                </div>
+            )}
         </div>
     );
 }
