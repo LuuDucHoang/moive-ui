@@ -2,12 +2,15 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faPlay, faAdd, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom';
 
 import style from './DetailMovie.module.scss';
 import Button from '~/components/Button';
 import PosterMovie from '~/components/PosterMovie';
 const cx = classNames.bind(style);
-function DetailMovie(data) {
+function DetailMovie(data, { btn, m0 }) {
+    const { type, id } = useParams();
+    const Mt0 = data.m0;
     const moive = data.data;
     const genres = 'genres';
     const country = 'production_countries';
@@ -37,25 +40,28 @@ function DetailMovie(data) {
         }
     };
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', { Mt0 })}>
             <PosterMovie data={data.data}></PosterMovie>
             <div className={cx('film-detail')}>
-                <div className={cx('action-btn')}>
-                    <Button
-                        rounded
-                        className={cx('btn-watch')}
-                        leftIcon={<FontAwesomeIcon icon={faPlay}></FontAwesomeIcon>}
-                    >
-                        Watch now
-                    </Button>
-                    <Button
-                        rounded
-                        className={cx('btn-add')}
-                        leftIcon={<FontAwesomeIcon icon={faAdd}></FontAwesomeIcon>}
-                    >
-                        Add to favorite
-                    </Button>
-                </div>
+                {data.btn && (
+                    <div className={cx('action-btn')}>
+                        <Button
+                            to={`/watch/${type}/${id}`}
+                            rounded
+                            className={cx('btn-watch')}
+                            leftIcon={<FontAwesomeIcon icon={faPlay}></FontAwesomeIcon>}
+                        >
+                            Watch now
+                        </Button>
+                        <Button
+                            rounded
+                            className={cx('btn-add')}
+                            leftIcon={<FontAwesomeIcon icon={faAdd}></FontAwesomeIcon>}
+                        >
+                            Add to favorite
+                        </Button>
+                    </div>
+                )}
                 <div className={cx('movie-title')}>
                     <Link>
                         <span>{data.data.original_title ? data.data.original_title : data.data.original_name}</span>

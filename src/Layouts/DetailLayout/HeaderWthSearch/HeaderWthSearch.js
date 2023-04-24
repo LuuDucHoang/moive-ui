@@ -18,43 +18,45 @@ function HeaderWthSearch() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('container')}>
-                <div
-                    onClick={() => {
-                        dispatch({
-                            type: 'CHANGE',
-                            payload: 'movie',
-                        });
-                    }}
-                >
-                    <Link to={'/'}>
-                        <img
-                            src="https://img.hdtoday.tv/xxrz/400x400/100/c4/93/c49337aa9c92d6fbf56b6b5830c6849c/c49337aa9c92d6fbf56b6b5830c6849c.png"
-                            className={cx('logo')}
-                        ></img>
-                    </Link>
+                <div className={cx('nav-wrapper')}>
+                    <div
+                        onClick={() => {
+                            dispatch({
+                                type: 'CHANGE',
+                                payload: 'movie',
+                            });
+                        }}
+                    >
+                        <Link to={'/'}>
+                            <img
+                                src="https://img.hdtoday.tv/xxrz/400x400/100/c4/93/c49337aa9c92d6fbf56b6b5830c6849c/c49337aa9c92d6fbf56b6b5830c6849c.png"
+                                className={cx('logo')}
+                            ></img>
+                        </Link>
+                    </div>
+                    <ul className={cx('menu-list', { mlr10: 'mlr10' })}>
+                        {menuList.map((item, index) => {
+                            if (item === 'genre' || item === 'country') {
+                                return (
+                                    <div key={index}>
+                                        <HeaderSubNav
+                                            item={item}
+                                            index={index}
+                                            movieTypeNav={item === 'genre' && movieTypeNav}
+                                            Country={item === 'country' && Country}
+                                        ></HeaderSubNav>
+                                    </div>
+                                );
+                            } else {
+                                return (
+                                    <li key={index}>
+                                        <a href="/">{item}</a>
+                                    </li>
+                                );
+                            }
+                        })}
+                    </ul>
                 </div>
-                <ul className={cx('menu-list')}>
-                    {menuList.map((item, index) => {
-                        if (item === 'genre' || item === 'country') {
-                            return (
-                                <div key={index}>
-                                    <HeaderSubNav
-                                        item={item}
-                                        index={index}
-                                        movieTypeNav={item === 'genre' && movieTypeNav}
-                                        Country={item === 'country' && Country}
-                                    ></HeaderSubNav>
-                                </div>
-                            );
-                        } else {
-                            return (
-                                <li key={index}>
-                                    <a href="/">{item}</a>
-                                </li>
-                            );
-                        }
-                    })}
-                </ul>
                 <div className={cx('login-search')}>
                     <LittleSearch></LittleSearch>
                     <Button className={cx('login-btn')} leftIcon={<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>}>

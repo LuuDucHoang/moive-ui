@@ -21,7 +21,7 @@ function ListMovieHeader({ button, header = '' }) {
             setMovieBtnActive(false);
             dispatch({
                 type: 'CHANGE',
-                payload: 'tvshows',
+                payload: 'tv',
             });
         }
     };

@@ -24,7 +24,7 @@ function ListMovie() {
             };
             fethApi();
         }
-        if (movieType === 'tvshows') {
+        if (movieType === 'tv') {
             const fethApi = async () => {
                 const data = await tvServices.tvlist();
 

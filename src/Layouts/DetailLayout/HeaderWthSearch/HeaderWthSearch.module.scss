@@ -9,15 +9,21 @@
     z-index: 2;
 }
 .container {
-    width: var(--web-width);
-    height: var(--menu-height);
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.nav-wrapper {
+    display: flex;
     align-items: center;
 }
 .logo {
     width: 112px;
     height: 35px;
+}
+.mlr10 {
+    margin: 0px 10px;
 }
 .menu-list {
     height: var(--menu-height);

@@ -11,6 +11,7 @@ const cx = classNames.bind(style);
 function Recommend() {
     const [getMovieList, setGetMovieList] = useState([]);
     const { id, type } = useParams();
+
     useEffect(() => {
         if (type === 'movie') {
             const fethApi = async () => {

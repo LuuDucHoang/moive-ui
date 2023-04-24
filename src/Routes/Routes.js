@@ -1,8 +1,9 @@
 import Home from '~/Pages/Home/Home';
-import Seacrh from '~/Pages/Search';
+import AllFlim from '~/Pages/AllFlim';
 import Detail from '~/Pages/Detail';
 import config from '~/config';
 import DetailLayout from '~/Layouts/DetailLayout';
+import WatchPages from '~/Pages/WatchPages';
 
 const publicRoutes = [
     {
@@ -10,8 +11,8 @@ const publicRoutes = [
         component: Home,
     },
     {
-        path: config.routes.search,
-        component: Seacrh,
+        path: config.routes.allfilm,
+        component: AllFlim,
     },
     {
         path: config.routes.detail,
@@ -26,6 +27,11 @@ const publicRoutes = [
     {
         path: config.routes.detailTV,
         component: Detail,
+        Layout: DetailLayout,
+    },
+    {
+        path: config.routes.watchMovie,
+        component: WatchPages,
         Layout: DetailLayout,
     },
 ];

@@ -54,14 +54,14 @@ function Detail() {
                     backgroundImage: imgUrl,
                 }}
             >
-                <Link className={cx('btn-play')}>
+                <Link className={cx('btn-play')} to={`/watch/${type}/${id}`}>
                     <div className={cx('play-icon')}>
                         <FontAwesomeIcon icon={faPlay}></FontAwesomeIcon>
                     </div>
                 </Link>
             </div>
             <div className={cx('detail-movie-wrapper')}>
-                <DetailMovie data={detailData}></DetailMovie>
+                <DetailMovie btn data={detailData}></DetailMovie>
             </div>
             <Social mt30></Social>
             <div className={cx('may-like')}>

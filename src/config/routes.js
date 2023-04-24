@@ -1,8 +1,8 @@
 const routes = {
     home: '/',
     search: '/search',
+    allfilm: '/list/:type',
     detail: '/:type/:id',
-    // detailTV: '/tvshows/:id',
-    detailMovie: '/watch',
+    watchMovie: 'watch/:type/:id',
 };
 export default routes;

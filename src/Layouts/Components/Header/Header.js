@@ -45,7 +45,12 @@ function Header() {
                         } else {
                             return (
                                 <li key={index}>
-                                    <a href="/">{item}</a>
+                                    <Link
+                                        to={(item == 'movies' && `/list/movie`) || (item == 'tv shows' && `/list/tv`)}
+                                        href="/"
+                                    >
+                                        {item}
+                                    </Link>
                                 </li>
                             );
                         }
