@@ -13,26 +13,14 @@ function Recommend() {
     const { id, type } = useParams();
 
     useEffect(() => {
-        if (type === 'movie') {
-            const fethApi = async () => {
-                const data = await similarMovie.similarMovie(id);
+        const fethApi = async () => {
+            const data = await similarMovie.similarMovie(id, type);
 
-                if (data) {
-                    setGetMovieList(data.results);
-                }
-            };
-            fethApi();
-        }
-        if (type === 'tvshows') {
-            const fethApi = async () => {
-                const data = await similarTv.similarTv(id);
-
-                if (data) {
-                    setGetMovieList(data.results);
-                }
-            };
-            fethApi();
-        }
+            if (data) {
+                setGetMovieList(data.results);
+            }
+        };
+        fethApi();
     }, [id, type]);
 
     return (

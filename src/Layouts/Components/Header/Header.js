@@ -14,12 +14,17 @@ import Search from '~/components/Search';
 
 const cx = classNames.bind(style);
 function Header() {
+    const dispatch = useDispatch();
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div
                     onClick={() => {
-                        window.location.reload();
+                        dispatch({
+                            type: 'CHANGE',
+                            payload: 'movie',
+                        });
                     }}
                 >
                     <Link to={'/'}>

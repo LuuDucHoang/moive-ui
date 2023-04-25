@@ -17,26 +17,14 @@ function Detail() {
     const { type, id } = useParams();
     const [detailData, setDetailData] = useState({});
     useEffect(() => {
-        if (type === 'movie') {
-            const fethApi = async () => {
-                const data = await DetailService.detailItem(id);
+        const fethApi = async () => {
+            const data = await DetailService.detailItem(id, type);
 
-                if (data) {
-                    setDetailData(data);
-                }
-            };
-            fethApi();
-        }
-        if (type === 'tvshows') {
-            const fethApi = async () => {
-                const data = await DetailTVService.detailItem(id);
-
-                if (data) {
-                    setDetailData(data);
-                }
-            };
-            fethApi();
-        }
+            if (data) {
+                setDetailData(data);
+            }
+        };
+        fethApi();
     }, [id, type]);
     let imgUrl;
     // eslint-disable-next-line no-lone-blocks

@@ -5,7 +5,7 @@ import DefaultLayout from '~/Layouts/DefaultLayout/DefaultLayout';
 function App() {
     return (
         <Router>
-            <div className="App">
+            <div className="App" style={{ height: '100%' }}>
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;

@@ -10,30 +10,20 @@ import * as tvServices from '~/services/tvListService';
 const cx = classNames.bind(style);
 function ListMovie() {
     const [getMovieList, setGetMovieList] = useState([]);
-    const [page, setPage] = useState(1);
     const movieType = useSelector((state) => state.movie.movieType);
-
+    console.log(movieType);
     useEffect(() => {
-        if (movieType === 'movie') {
-            const fethApi = async () => {
-                const data = await movieServices.movielist();
+        const fethApi = async () => {
+            let type = movieType;
+            console.log(type);
+            const data = await tvServices.list(type);
 
-                if (data) {
-                    setGetMovieList(data.results);
-                }
-            };
-            fethApi();
-        }
-        if (movieType === 'tv') {
-            const fethApi = async () => {
-                const data = await tvServices.tvlist();
-
-                if (data) {
-                    setGetMovieList(data.results);
-                }
-            };
-            fethApi();
-        }
+            if (data) {
+                console.log(data);
+                setGetMovieList(data.results);
+            }
+        };
+        fethApi();
     }, [movieType]);
 
     return (
