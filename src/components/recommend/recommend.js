@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import Movie from '~/components/Movie/';
 import style from './recommend.module.scss';
 import * as similarMovie from '~/services/getSimilarMovie';
-import * as similarTv from '~/services/getSimilarTv';
 import { useParams } from 'react-router-dom';
 const cx = classNames.bind(style);
 function Recommend() {

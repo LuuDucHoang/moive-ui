@@ -53,3 +53,90 @@
     width: 100%;
     overflow: hidden;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$CUS: 860px;
+$XL: 1170px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    }
+}
+@include Responsive(SM) {
+    .search-wrapper {
+        width: 100%;
+    }
+    .search-header {
+        display: none;
+    }
+    .search-icon {
+        position: absolute;
+        height: 38px;
+        margin-top: -50px;
+        z-index: 1;
+    }
+    .ccc {
+        height: 38px;
+        width: 738px;
+        display: flex;
+        margin-top: -50px;
+        position: relative;
+        align-items: center;
+    }
+    .search-input {
+        top: 0;
+        height: 100%;
+        width: 100%;
+        font-size: 1.6rem;
+        padding-right: 50px;
+        position: relative;
+    }
+    .item-wrapper {
+        width: 738px;
+    }
+    .go {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        height: 38px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0px !important;
+        top: 0;
+        margin-top: -50px;
+    }
+}
+
+@include Responsive(MD) {
+    .wrapper {
+        height: 120px;
+        padding: 0px 15px;
+    }
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .ccc {
+        width: 100%;
+    }
+    .search-input {
+        width: 100%;
+    }
+}

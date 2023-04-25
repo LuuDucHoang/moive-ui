@@ -19,3 +19,83 @@
 .recom {
     margin-top: 160px;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1180px;
+$CUS: 1140px;
+$CUS2: 700px;
+$CUS3: 659px;
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == CUS {
+        @media only screen and (max-width: $CUS) {
+            @content;
+        }
+    } @else if $canvas == CUS2 {
+        @media only screen and (max-width: $CUS2) {
+            @content;
+        }
+    } @else if $canvas == CUS3 {
+        @media only screen and (max-width: $CUS3) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .wrapper {
+        margin: 24px 0px;
+    }
+    .video {
+        height: 500px;
+    }
+}
+@include Responsive(CUS) {
+    .wrapper {
+        margin: 24px 0px;
+    }
+    .video {
+        width: 100%;
+        height: 430px;
+    }
+    .videoWrapper {
+        display: flex;
+        justify-content: center;
+    }
+}
+@include Responsive(CUS2) {
+    .video {
+        width: 100%;
+        height: 390px;
+    }
+}
+@include Responsive(CUS3) {
+    .video {
+        width: 100%;
+        height: 360px;
+    }
+}
+@include Responsive(XS) {
+    .video {
+        width: 100%;
+        height: 240px;
+    }
+}

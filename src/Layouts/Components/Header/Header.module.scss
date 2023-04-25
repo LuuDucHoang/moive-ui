@@ -1,3 +1,30 @@
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1170px;
+$CUS: 860px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == CUS {
+        @media only screen and (max-width: $CUS) {
+            @content;
+        }
+    }
+}
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -36,5 +63,27 @@
         text-decoration: none;
         align-items: center;
         color: var(--white);
+    }
+}
+
+//Tablet
+@include Responsive(SM) {
+    .wrapper {
+        height: 120px;
+        padding: 0px 15px;
+    }
+    .menu-list {
+        display: none;
+    }
+}
+
+@include Responsive(MD) {
+    .wrapper {
+        padding: 0px 15px;
+    }
+    .menu-list {
+        li {
+            padding: 0px 10px;
+        }
     }
 }

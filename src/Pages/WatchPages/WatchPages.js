@@ -58,16 +58,18 @@ function WatchPages() {
             <span className={cx('path')}>{`Home / ${type} / ${
                 detailData.original_title ? detailData.original_title : detailData.original_name
             }`}</span>
-            <iframe
-                className={cx('video')}
-                // width="560"
-                // height="315"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                src={`https://www.youtube.com/embed/${videos.key}`}
-            ></iframe>
+            <div className={cx('videoWrapper')}>
+                <iframe
+                    className={cx('video')}
+                    // width="560"
+                    // height="315"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    src={`https://www.youtube.com/embed/${videos.key}`}
+                ></iframe>
+            </div>
             <div className={cx('social')}>
                 <Social mt0></Social>
             </div>

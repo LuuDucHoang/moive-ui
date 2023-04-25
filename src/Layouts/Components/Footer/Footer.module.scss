@@ -13,7 +13,6 @@
 .footerLogo {
     width: 148px;
     height: 46px;
-
     margin-bottom: 20px;
 }
 .coppyRight {
@@ -24,7 +23,6 @@
 .fix {
     display: flex;
     justify-content: space-between;
-    align-items: c;
 }
 .aboutUs {
     float: left;
@@ -69,4 +67,76 @@
     border: 1px solid #393939;
     text-align: justify;
     position: relative;
+}
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$CUS: 860px;
+$XL: 1170px;
+$CUS2: 1400px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (max-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (max-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == CUS2 {
+        @media only screen and (max-width: $CUS2) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .wrapper {
+        padding-bottom: 20px;
+    }
+    .aboutUs {
+        display: none;
+    }
+    .fix {
+        width: 100%;
+        padding-left: 20px;
+    }
+}
+@include Responsive(MD) {
+    .fix {
+        width: 100%;
+        padding-left: 20px;
+    }
+}
+
+@include Responsive(XL) {
+    .fix {
+        width: 100%;
+        padding-left: 20px;
+    }
+}
+
+@include Responsive(CUS3) {
+    .video {
+        width: 100%;
+        height: 360px;
+    }
+}
+@include Responsive(XS) {
+    .noticeDetail {
+        margin-top: -30px;
+        font-size: 0.5rem;
+    }
 }

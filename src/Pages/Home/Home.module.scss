@@ -6,3 +6,46 @@
     display: flex;
     justify-content: flex-end;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1170px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (max-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .content-wrapper {
+        margin: 0;
+        padding: 0px 15px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+@include Responsive(MD) {
+    .content-wrapper {
+        margin: 0;
+        padding: 0px 15px;
+    }
+}

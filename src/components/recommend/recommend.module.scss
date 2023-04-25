@@ -4,3 +4,42 @@
     flex-wrap: wrap;
     // height: 6000px;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1170px;
+$CUS: 1470px;
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == CUS {
+        @media only screen and (max-width: $CUS) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+}
+@include Responsive(CUS) {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+}

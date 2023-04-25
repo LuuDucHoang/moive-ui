@@ -53,3 +53,49 @@
 .may-like {
     margin: 60px 140px;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1180px;
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (max-width: $XL) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .item-wrapper {
+        width: 100%;
+    }
+    .detail-movie-wrapper {
+        margin-top: 500px;
+    }
+    .poster-background {
+        height: 500px;
+    }
+    .btn-play {
+        height: 500px;
+    }
+}
+
+@include Responsive(XL) {
+    .may-like {
+        margin: 60px 0px;
+    }
+}

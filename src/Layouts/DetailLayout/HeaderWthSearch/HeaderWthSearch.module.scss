@@ -51,3 +51,69 @@
 .login-search {
     display: flex;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1170px;
+$CUS: 1195px;
+$CUS2: 560px;
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == CUS {
+        @media only screen and (max-width: $CUS) {
+            @content;
+        }
+    } @else if $canvas == CUS2 {
+        @media only screen and (max-width: $CUS2) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .wrapper {
+        width: 100%;
+        padding: 0px 15px;
+    }
+    .container {
+        height: 100%;
+    }
+    .menu-list {
+        display: none;
+    }
+}
+@include Responsive(CUS) {
+    .wrapper {
+        width: 100%;
+        padding: 0px 15px;
+    }
+    .container {
+        height: 100%;
+    }
+    .menu-list {
+        display: none;
+    }
+}
+
+@include Responsive(CUS2) {
+    .login-search {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

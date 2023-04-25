@@ -108,3 +108,69 @@
     font-weight: 300;
     color: #111;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$CUS: 1150px;
+$CUS2: 910px;
+$CUS3: 560px;
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == CUS2 {
+        @media only screen and (max-width: $CUS2) {
+            @content;
+        }
+    } @else if $canvas == CUS {
+        @media only screen and (max-width: $CUS) {
+            @content;
+        }
+    } @else if $canvas == CUS3 {
+        @media only screen and (max-width: $CUS3) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .wrapper {
+        margin: 0;
+    }
+    .movie-dres {
+        display: none;
+    }
+}
+
+@include Responsive(CUS) {
+    .wrapper {
+        margin: 0;
+    }
+}
+@include Responsive(CUS2) {
+    .wrapper {
+        margin: 0;
+    }
+    .movie-dres {
+        display: none;
+    }
+}
+@include Responsive(CUS3) {
+    .wrapper {
+        margin: 0;
+        padding: 20px;
+    }
+    // .movie-dres {
+    //     display: none;
+    // }
+    .film-detail {
+        padding: 0;
+    }
+}

@@ -32,3 +32,50 @@
     max-width: 300px;
     overflow: hidden;
 }
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1170px;
+$CUS: 560px;
+
+@mixin Responsive($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: $XS) {
+            @content;
+        }
+    } @else if $canvas == SM {
+        @media only screen and (max-width: $SM) {
+            @content;
+        }
+    } @else if $canvas == MD {
+        @media only screen and (min-width: $MD) {
+            @content;
+        }
+    } @else if $canvas == XL {
+        @media only screen and (min-width: $XL) {
+            @content;
+        }
+    } @else if $canvas == CUS {
+        @media only screen and (max-width: $CUS) {
+            @content;
+        }
+    }
+}
+
+@include Responsive(SM) {
+    .item-wrapper {
+        width: 100%;
+    }
+}
+@include Responsive(CUS) {
+    .search-wrapper {
+        padding-left: 10px;
+    }
+    .ccc {
+        width: 100%;
+    }
+    .search-input {
+        width: 100%;
+    }
+}

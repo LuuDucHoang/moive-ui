@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import Movie from '~/components/Movie/';
 import style from './ListMovie.module.scss';
-import * as movieServices from '~/services/movieListService';
 import * as tvServices from '~/services/tvListService';
 
 const cx = classNames.bind(style);
