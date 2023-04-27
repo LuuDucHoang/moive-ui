@@ -8,7 +8,7 @@ import ListMovieHeader from '~/Layouts/Components/Content/ListMovieHeader/';
 import Recommend from '~/components/recommend/';
 import Social from '~/Layouts/Components/Content/Social/';
 import * as DetailService from '~/services/getDeatilService';
-import * as DetailTVService from '~/services/getDetailTV';
+
 import * as VideoService from '~/services/getVideoService';
 
 const cx = classNames.bind(style);
@@ -16,21 +16,10 @@ function WatchPages() {
     const { id, type } = useParams();
     const [detailData, setDetailData] = useState({});
     const [videos, setVideo] = useState('');
-    let newSrc;
     useEffect(() => {
-        if (type === 'movie') {
+        if (type) {
             const fethApi = async () => {
-                const data = await DetailService.detailItem(id);
-
-                if (data) {
-                    setDetailData(data);
-                }
-            };
-            fethApi();
-        }
-        if (type === 'tvshows') {
-            const fethApi = async () => {
-                const data = await DetailTVService.detailItem(id);
+                const data = await DetailService.detailItem(id, type);
 
                 if (data) {
                     setDetailData(data);

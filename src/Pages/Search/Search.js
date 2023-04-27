@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import style from './Search.module.scss';
 import Movie from '~/components/Movie/Movie';
@@ -13,7 +12,6 @@ const cx = classNames.bind(style);
 function Search() {
     const { keyword } = useParams();
     const [searchResult, setSearchResult] = useState([]);
-    const movieType = useSelector((state) => state.movie.movieType);
     const [page, setPage] = useState(1);
     useEffect(() => {
         const fethApi = async () => {

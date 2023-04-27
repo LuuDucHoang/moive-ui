@@ -2,8 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { usePagination, DOTS } from '~/components/hooks/usePagination';
 import './Pagination.scss';
-import { Link, useParams } from 'react-router-dom';
-import { type } from '@testing-library/user-event/dist/type';
+
 const Pagination = (props) => {
     const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
     const paginationRange = usePagination({

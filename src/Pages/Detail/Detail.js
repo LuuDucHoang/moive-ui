@@ -29,7 +29,7 @@ function Detail() {
     // eslint-disable-next-line no-lone-blocks
     {
         detailData.backdrop_path
-            ? (imgUrl = `url(https://image.tmdb.org/t/p/original/${detailData.backdrop_path})`)
+            ? (imgUrl = `url(${process.env.REACT_APP_backdrop_path}${detailData.backdrop_path})`)
             : (imgUrl = `url(${noImg})`);
     }
 

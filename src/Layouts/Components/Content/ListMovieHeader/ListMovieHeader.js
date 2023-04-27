@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {} from '@fortawesome/free-regular-svg-icons';
 import { faCirclePlay, faList } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import style from './ListMovieHeader.module.scss';
 import Button from '~/components/Button/';
@@ -60,4 +61,8 @@ function ListMovieHeader({ button, header = '' }) {
     );
 }
 
+ListMovieHeader.propTypes = {
+    button: PropTypes.bool,
+    header: PropTypes.string.isRequired,
+};
 export default ListMovieHeader;

@@ -28,7 +28,7 @@ function Seacrh() {
 
     return (
         <div className={cx('wrapper')}>
-            <ListMovieHeader header={`All ${type == 'tv' ? 'TV Shows' : 'Movie'} Page "Enjoy :3"`}></ListMovieHeader>
+            <ListMovieHeader header={`All ${type === 'tv' ? 'TV Shows' : 'Movie'} Page "Enjoy :3"`}></ListMovieHeader>
             <div className={cx('movie-wrap')}>
                 {MovieList.map((movie, index) => {
                     return (

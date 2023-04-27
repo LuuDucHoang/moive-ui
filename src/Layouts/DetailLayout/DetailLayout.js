@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 
 import style from './DetailLayout.module.scss';
 import HeaderWthSearch from './HeaderWthSearch/';
@@ -14,4 +15,7 @@ function DetailLayout({ children }) {
     );
 }
 
+DetailLayout.propTypes = {
+    children: PropTypes.object.isRequired,
+};
 export default DetailLayout;

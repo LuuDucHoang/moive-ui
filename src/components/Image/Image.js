@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 

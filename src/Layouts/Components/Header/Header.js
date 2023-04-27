@@ -28,10 +28,7 @@ function Header() {
                     }}
                 >
                     <Link to={'/'}>
-                        <img
-                            src="https://img.hdtoday.tv/xxrz/400x400/100/c4/93/c49337aa9c92d6fbf56b6b5830c6849c/c49337aa9c92d6fbf56b6b5830c6849c.png"
-                            className={cx('logo')}
-                        ></img>
+                        <img src={process.env.REACT_APP_IMGS} className={cx('logo')}></img>
                     </Link>
                 </div>
                 <ul className={cx('menu-list')}>

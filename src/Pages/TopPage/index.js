@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -10,7 +9,6 @@ import ListMovieHeader from '~/Layouts/Components/Content/ListMovieHeader';
 import * as TopList from '~/services/topListService';
 const cx = classNames.bind(style);
 function TopPage() {
-    const { keyword } = useParams();
     const [searchResult, setSearchResult] = useState([]);
     const [page, setPage] = useState(1);
     const movieType = useSelector((state) => state.movie.movieType);

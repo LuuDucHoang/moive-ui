@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faPlay, faAdd, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import style from './DetailMovie.module.scss';
 import Button from '~/components/Button';
 import PosterMovie from '~/components/PosterMovie';
 const cx = classNames.bind(style);
-function DetailMovie(data, { btn, m0 }) {
+function DetailMovie(data) {
     const { type, id } = useParams();
     const Mt0 = data.m0;
     const moive = data.data;
@@ -128,4 +129,7 @@ function DetailMovie(data, { btn, m0 }) {
     );
 }
 
+DetailMovie.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 export default DetailMovie;

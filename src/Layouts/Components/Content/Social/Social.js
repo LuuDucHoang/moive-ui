@@ -9,6 +9,7 @@ import {
     faReddit,
     faTelegram,
 } from '@fortawesome/free-brands-svg-icons';
+import PropTypes from 'prop-types';
 
 import style from './Social.module.scss';
 import Button from '~/components/Button';
@@ -67,4 +68,8 @@ function Social({ mt30, mt0 }) {
     );
 }
 
+Social.propTypes = {
+    mt0: PropTypes.bool,
+    mt30: PropTypes.bool,
+};
 export default Social;

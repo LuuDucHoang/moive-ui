@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
-import { useParams } from 'react-router-dom';
 
 import style from './Home.module.scss';
 import ListMovieHeader from '~/Layouts/Components/Content/ListMovieHeader';
@@ -9,8 +8,6 @@ import ListMovie from '~/components/ListMovie/ListMovie';
 import Button from '~/components/Button';
 const cx = classNames.bind(style);
 function Home() {
-    const { type, page } = useParams();
-
     const movieType = useSelector((state) => state.movie.movieType);
 
     return (

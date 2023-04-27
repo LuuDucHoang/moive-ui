@@ -1,5 +1,6 @@
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 
 import style from './HeaderSubNav.module.scss';
 import { Link } from 'react-router-dom';
@@ -33,10 +34,15 @@ function HeaderSubNav({ item, index, movieTypeNav = false, Country = false }) {
             )}
         >
             <li>
-                <a href="">{item}</a>
+                <Link>{item}</Link>
             </li>
         </HeadlessTippy>
     );
 }
-
+HeaderSubNav.propTypes = {
+    item: PropTypes.string.isRequired,
+    index: PropTypes.number.isRequired,
+    movieTypeNav: PropTypes.any,
+    Country: PropTypes.any,
+};
 export default HeaderSubNav;

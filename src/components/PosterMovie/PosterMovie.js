@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 import Image from '~/components/Image';
@@ -15,7 +16,9 @@ function PosterMovie(data) {
             <div className={cx('poster')}>
                 <Image
                     className={cx('film-poster')}
-                    src={data.data.poster_path ? `https://image.tmdb.org/t/p/original/${data.data.poster_path}` : noImg}
+                    src={
+                        data.data.poster_path ? `${process.env.REACT_APP_backdrop_path}${data.data.poster_path}` : noImg
+                    }
                 ></Image>
                 <div className={cx('rating')}>
                     <span className={cx('vote-rate')}>{data.data.vote_average}</span>/ {data.data.vote_count}
@@ -42,4 +45,7 @@ function PosterMovie(data) {
     );
 }
 
+PosterMovie.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 export default PosterMovie;

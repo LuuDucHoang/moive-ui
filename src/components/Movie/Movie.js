@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {} from '@fortawesome/free-regular-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Image from '~/components/Image';
 import noImg from '~/assets/image/NoImg.png';
@@ -53,5 +53,8 @@ function Movie(data) {
         </div>
     );
 }
+Movie.propTyoes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default Movie;

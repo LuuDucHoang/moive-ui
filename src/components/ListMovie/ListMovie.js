@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import Movie from '~/components/Movie/';
@@ -10,15 +10,12 @@ const cx = classNames.bind(style);
 function ListMovie() {
     const [getMovieList, setGetMovieList] = useState([]);
     const movieType = useSelector((state) => state.movie.movieType);
-    console.log(movieType);
     useEffect(() => {
         const fethApi = async () => {
             let type = movieType;
-            console.log(type);
             const data = await tvServices.list(type);
 
             if (data) {
-                console.log(data);
                 setGetMovieList(data.results);
             }
         };
