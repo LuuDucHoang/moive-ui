@@ -51,7 +51,8 @@ function Header() {
                                         to={
                                             (item === 'movies' && `/list/movie`) ||
                                             (item === 'tv shows' && `/list/tv`) ||
-                                            (item === 'top imdb' && `/toplist`)
+                                            (item === 'top imdb' && `/toplist`) ||
+                                            (item === 'home' && `/`)
                                         }
                                     >
                                         {item}

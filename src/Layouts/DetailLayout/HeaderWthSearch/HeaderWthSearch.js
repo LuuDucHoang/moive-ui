@@ -31,7 +31,7 @@ function HeaderWthSearch() {
                             <img src={process.env.REACT_APP_IMGS} className={cx('logo')}></img>
                         </Link>
                     </div>
-                    <ul className={cx('menu-list', { mlr10: 'mlr10' })}>
+                    <ul className={cx('menu-list')}>
                         {menuList.map((item, index) => {
                             if (item === 'genre' || item === 'country') {
                                 return (
@@ -47,7 +47,16 @@ function HeaderWthSearch() {
                             } else {
                                 return (
                                     <li key={index}>
-                                        <a href="/">{item}</a>
+                                        <Link
+                                            to={
+                                                (item === 'movies' && `/list/movie`) ||
+                                                (item === 'tv shows' && `/list/tv`) ||
+                                                (item === 'top imdb' && `/toplist`) ||
+                                                (item === 'home' && `/`)
+                                            }
+                                        >
+                                            {item}
+                                        </Link>
                                     </li>
                                 );
                             }
