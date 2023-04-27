@@ -8,6 +8,7 @@ import { useDebounce } from '~/components/hooks';
 import MovieItem from '~/components/MovieItem';
 import style from './Search.module.scss';
 import * as searchServices from '~/services/searchService';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 function Search() {
@@ -76,9 +77,10 @@ function Search() {
                         ></input>
                     </HeadlessTippy>
                 </div>
-                <div className={cx('go')}>
+
+                <Link className={cx('go')} to={searchValue ? `/search/${searchValue}` : ''}>
                     <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                </div>
+                </Link>
             </div>
         </div>
     );

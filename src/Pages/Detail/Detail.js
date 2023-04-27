@@ -9,7 +9,6 @@ import DetailMovie from '~/components/DetailMovie/';
 import Social from '~/Layouts/Components/Content//Social';
 import ListMovieHeader from '~/Layouts/Components/Content//ListMovieHeader';
 import * as DetailService from '~/services/getDeatilService';
-import * as DetailTVService from '~/services/getDetailTV';
 import Recommend from '~/components/recommend';
 import noImg from '~/assets/image/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg';
 const cx = classNames.bind(style);

@@ -51,8 +51,11 @@ function Header() {
                             return (
                                 <li key={index}>
                                     <Link
-                                        to={(item == 'movies' && `/list/movie`) || (item == 'tv shows' && `/list/tv`)}
-                                        href="/"
+                                        to={
+                                            (item === 'movies' && `/list/movie`) ||
+                                            (item === 'tv shows' && `/list/tv`) ||
+                                            (item === 'top imdb' && `/toplist`)
+                                        }
                                     >
                                         {item}
                                     </Link>

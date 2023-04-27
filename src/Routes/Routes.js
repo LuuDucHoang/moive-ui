@@ -3,7 +3,9 @@ import AllFlim from '~/Pages/AllFlim';
 import Detail from '~/Pages/Detail';
 import config from '~/config';
 import DetailLayout from '~/Layouts/DetailLayout';
+import Seacrh from '~/Pages/Search';
 import WatchPages from '~/Pages/WatchPages';
+import TopPage from '~/Pages/TopPage';
 
 const publicRoutes = [
     {
@@ -13,6 +15,14 @@ const publicRoutes = [
     {
         path: config.routes.allfilm,
         component: AllFlim,
+    },
+    {
+        path: config.routes.topList,
+        component: TopPage,
+    },
+    {
+        path: config.routes.search,
+        component: Seacrh,
     },
     {
         path: config.routes.detail,

@@ -1,50 +1,49 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
+import style from './Search.module.scss';
 import Movie from '~/components/Movie/Movie';
 import Pagination from '~/components/Pagination';
-import * as movieServices from '~/services/movieListService';
 import ListMovieHeader from '~/Layouts/Components/Content/ListMovieHeader';
-import style from './AllFlim.module.scss';
-const cx = classNames.bind(style);
+import * as searchServices from '~/services/searchService';
 
-function Seacrh() {
-    const { type, pages } = useParams();
-    const [MovieList, setGetMovieList1] = useState([]);
-    const [page, setPage] = useState(1);
+const cx = classNames.bind(style);
+function Search() {
+    const { keyword } = useParams();
+    const [searchResult, setSearchResult] = useState([]);
     const movieType = useSelector((state) => state.movie.movieType);
-    console.log(pages);
+    const [page, setPage] = useState(1);
     useEffect(() => {
         const fethApi = async () => {
-            const data = await movieServices.movielist(page, type);
+            const data = await searchServices.search(keyword, page);
+
             if (data) {
-                setGetMovieList1(data.results);
+                setSearchResult(data.results);
             }
         };
         fethApi();
-    }, [page, type]);
+    }, [keyword, page]);
 
     return (
         <div className={cx('wrapper')}>
-            <ListMovieHeader header={`All ${type == 'tv' ? 'TV Shows' : 'Movie'} Page "Enjoy :3"`}></ListMovieHeader>
+            <ListMovieHeader header={`Here are yours results about '${keyword}' `}></ListMovieHeader>
             <div className={cx('movie-wrap')}>
-                {MovieList.map((movie, index) => {
+                {searchResult.map((item, index) => {
                     return (
                         <div key={index}>
-                            <Movie data={movie} type={movieType}></Movie>
+                            <Movie data={item}></Movie>
                         </div>
                     );
                 })}
             </div>
-            {MovieList && (
+            {searchResult && (
                 <div className={cx('Pagination')}>
                     <Pagination
-                        type={type}
                         className="pagination-bar"
                         currentPage={page}
-                        totalCount={500}
+                        totalCount={10}
                         pageSize={1}
                         onPageChange={(page) => {
                             setPage(page);
@@ -60,4 +59,4 @@ function Seacrh() {
     );
 }
 
-export default Seacrh;
+export default Search;
