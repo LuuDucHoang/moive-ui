@@ -25,7 +25,9 @@ function HeaderSubNav({ item, index, movieTypeNav = false, Country = false }) {
                         {data.map((dataItem, index) => {
                             return (
                                 <li key={index} className={cx('list-item')}>
-                                    <Link className={cx('data-item')}>{dataItem.type}</Link>
+                                    <Link to={`/search/${dataItem.type}`} className={cx('data-item')}>
+                                        {dataItem.type}
+                                    </Link>
                                 </li>
                             );
                         })}

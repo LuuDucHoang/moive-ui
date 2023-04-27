@@ -41,7 +41,7 @@ function Search() {
                     <Pagination
                         className="pagination-bar"
                         currentPage={page}
-                        totalCount={10}
+                        totalCount={2}
                         pageSize={1}
                         onPageChange={(page) => {
                             setPage(page);
